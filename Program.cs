@@ -8,7 +8,6 @@
 
 // Exercise 1
 //=============
-
 void exerciseP1_1() {
     Console.WriteLine("pleas enter number of products:");
     int? numProducts = int.Parse(Console.ReadLine());
@@ -19,10 +18,9 @@ void exerciseP1_1() {
     Console.WriteLine($"the total price is: {numProducts*price}");
 }
 
-// ============
+
 // Exercise 3
 //=============
-
 void exerciseP1_3() {
     double b;
     double h;
