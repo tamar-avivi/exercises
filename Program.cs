@@ -19,7 +19,7 @@ void exerciseP1_1() {
     Console.WriteLine($"the total price is: {numProducts*price}");
 }
 
-
+// ============
 // Exercise 3
 //=============
 
