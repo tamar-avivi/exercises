@@ -1,31 +1,29 @@
 ﻿
-//Console.WriteLine("Please enter your name:");
-//string? name = Console.ReadLine();
-//Console.WriteLine($"Hello {name}");
 
-//int x = 1;
-//float y = 8.5f;
+//                                             EXERCISES
+//==============================================================================================================
 
-//Console.WriteLine($"{x + y}");
-
-// Console.WriteLine("pleas enter number of products");
-// int? numProducts = int.Parse(Console.ReadLine());
-// Console.WriteLine("please enter the price");
-// int? price = int.Parse(Console.ReadLine());
-// Console.WriteLine($"number of products is {numProducts}");
-// Console.WriteLine($"the price is {price}");
-// Console.WriteLine($"the total price is: {numProducts*price}");
-
-//int random_number = new Random().Next(1, 10);
-//Console.WriteLine($"{random_number}");
-
+// Page 1:
+//===================================================================
 
 // Exercise 1
 //=============
-using System.Numerics;
-using System.Transactions;
 
-void exercise1() {
+void exerciseP1_1() {
+    Console.WriteLine("pleas enter number of products:");
+    int? numProducts = int.Parse(Console.ReadLine());
+    Console.WriteLine("please enter the price:");
+    int? price = int.Parse(Console.ReadLine());
+    Console.WriteLine($"number of products is {numProducts}");
+    Console.WriteLine($"the price is {price}");
+    Console.WriteLine($"the total price is: {numProducts*price}");
+}
+
+
+// Exercise 3
+//=============
+
+void exerciseP1_3() {
     double b;
     double h;
     Console.WriteLine("enter the base:");
@@ -39,9 +37,9 @@ void exercise1() {
 }
 
 
-// Exercise 2
+// Exercise 4
 // =============
-void exercise2(){
+void exerciseP1_4() {
     double price;
     int numOfStudents;
     Console.WriteLine("enter the price of one book:");
@@ -53,9 +51,12 @@ void exercise2(){
 }
 
 
-// Exercise 3
+// Page 2
+//===================================================================
+
+// Exercise 1
 // =============
-void exercise3() {
+void exerciseP2_1() {
     int guests;
     int numOfPlacesAtTheTable;
     Console.WriteLine("enter the number of guests:");
@@ -68,9 +69,9 @@ void exercise3() {
 }
 
 
-// Exercise 4
+// Exercise 2
 //=============
-void exercise4() {
+void exerciseP2_2() {
     int integer;
     Console.WriteLine("enter a two digit number:");
     integer = int.Parse(Console.ReadLine());
@@ -80,23 +81,29 @@ void exercise4() {
 }
 
 
-// Exercise 5
+// Exercise 6
 //=============
-void exercise5() {
+void exerciseP2_6() {
     int integer;
     int num;
     int num2;
     int num3;
-    Console.WriteLine("enter atwo digit number:");
+    Console.WriteLine("enter a two digit number:");
     integer = int.Parse(Console.ReadLine());
-    Console.WriteLine("Enter a digit number:");
+    Console.WriteLine("Enter a one digit number:");
     num = int.Parse(Console.ReadLine());
     num2 = integer % 10;
     num3 = integer / 10;
     Console.WriteLine($"{num3}{num}{num2}");
 }
 
-void exercise3_1() {
+
+// Page 3
+//===================================================================
+
+// Exercise 1
+//=============
+void exerciseP3_1() {
     char ch1 = 'a';
     char ch2 = 'z';
     int num = ch1 - ch2;
@@ -117,11 +124,9 @@ void exercise3_1() {
     Console.WriteLine(avg2);
 }
 
-int addTwoNumbers(int a, int b) {
-    return a + b;
-}
-
-void exercise6() {
+// Exercise 2
+//=============
+void exerciseP3_2() {
     int char1;
     int char2;
     int char3;
@@ -132,7 +137,10 @@ void exercise6() {
     Console.WriteLine($"{char2} {char1} {char3}");
 }
 
-void exercise8(){
+
+//Exercise 4
+//============
+void exerciseP3_4(){
     char char1;
     char char2;
     char char3;
@@ -157,7 +165,12 @@ void exercise8(){
     Console.WriteLine($"{unum}");
 }
 
-void palindrom() {
+// Page 4
+//===================================================================
+
+// Exercise 1
+//=============
+void exerciseP4_1() {
     int num;
     int num1;
     int num2;
@@ -174,10 +187,10 @@ void palindrom() {
     }
 }
 
-//palindrom();
 
-
-void exercise10() {
+// Exercise 10
+//==============
+void exerciseP4_10() {
     string name1;
     string name2;
     int numT1;
@@ -202,7 +215,9 @@ void exercise10() {
 }
 
 
-void exercise11() {
+// Exercise 11
+//==============
+void exerciseP4_11() {
     int num;
     int num2;
     char op;
@@ -221,30 +236,4 @@ void exercise11() {
     }
 
 }
-
-
-exercise11();
-//exercise8();
-
-// Console.WriteLine(addTwoNumbers(2, 5));
-
-// exercise5();
-
-// exercise3_1();
-
-// double avg = (3.0 + 4.0) / 2;
-// Console.WriteLine(avg);
-
- void exercise12() {
-    int num;
-    Console.WriteLine("enter a grade :");
-    num = int.Parse(Console.ReadLine());
-    if (num <= 100 && num >= 0) {
-        Console.WriteLine("valid");
-    }
-    else {
-        Console.WriteLine("invalid");
-    }
-
-
- }
+//==================================================================================================================
