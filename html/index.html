@@ -1,0 +1,100 @@
+<html>
+
+<head>
+    <style>
+        body {
+            direction: rtl;
+        }
+
+        table {
+            border: 1px solid black;
+            margin: 200px auto;
+            border-collapse: collapse;
+        }
+
+        td,th {
+            border: 1px solid black;
+            text-align: center;
+            border-collapse: collapse;
+        }
+        th {
+            background-color: rgb(163, 209, 255);
+        }
+        .hours {
+            background-color: lightblue;
+        }
+        .english {
+            background-color: rgb(255, 185, 247);
+        }
+        .sport {
+            background-color: rgb(158, 245, 249);
+        }
+        .math {
+            background-color: rgb(254, 254, 140);
+        }
+        .social {
+            background-color: rgb(172, 252, 255);
+        }
+        .science {
+            background-color: rgb(218, 250, 169);
+        }
+        .art {
+            background-color: rgb(255, 155, 155);
+        }
+        .history {
+            background-color: rgb(255, 216, 145);
+        }
+        .edu {
+            background-color: rgb(227, 192, 255);
+        }
+
+    </style>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <th> ===== </th>
+            <th> יום ראשון </th>
+            <th> יום שני </th>
+            <th> יום שלישי </th>
+            <th> יום רביעי </th>
+            <th> יום חמישי </th>
+            <th> יום שישי </th>
+        </tr>
+        <tr>
+            <td class="hours"> שעה ראשונה </td>
+            <td colspan="2" class="math"> מתמטיקה </td>  
+            <td class="english"> אנגלית </td>
+            <td class="sport"> ספורט </td>
+            <td class="social"> סוציולוגיה </td>
+            <td class="history"> היסטוריה </td>
+        </tr>
+        <tr>
+            <td class="hours"> שעה שניה </td>
+            <td class="science"> מדעים </td>
+            <td rowspan="2" class="social"> סוציולוגיה </td>
+            <td class="history"> היסטוריה </td>
+            <td class="english"> אנגלית </td>
+            <td rowspan="2" class="english"> אנגלית </td>
+            <td class="science"> מדעים </td>
+        </tr>
+        <tr>
+            <td class="hours"> שעה שלישית </td>
+            <td class="edu"> חינוך </td>
+            <td class="science"> מדעים </td>
+            <td class="math"> מתמטיקה </td>
+            <td class="art"> אומנות </td>
+        </tr>
+        <tr>
+            <td class="hours"> שעה רביעית </td>
+            <td class="sport"> ספורט </td>
+            <td class="science"> מדעים </td>
+            <td class="math"> מתמטיקה </td>
+            <td colspan="2" class="art"> אומנות </td>
+            <td class="history"> היסטוריה </td>
+        </tr>
+    </table>
+</body>
+
+</html>
