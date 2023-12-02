@@ -6,39 +6,63 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+h1 {
+    color: blue;
+}
+
 /* Style the header */
-header {
+.header {
     background-color: #d86363;
+    height: 150px;
+    padding: 30px;
+    font-size: 90px;
+    font-family: "Copperplate";
+    font-weight: bold;
+    /* background-color: #d86363;
     height: 100px;
     padding: 30px;
     text-align: center;
     font-size: 35px;
-    color: white;
+    color: white; */
 }
 
 /* Container for flexboxes */
-section {
+.section {
     display: flex;
 }
 
 /* Style the navigation menu */
-nav {
+.nav {
     flex: 1;
     background: #ccc;
     padding: 20px;
+    height: 400px;
 }
 
 /* Style the list inside the menu */
-nav ul {
+.nav ul {
     list-style-type: none;
     padding: 0;
 }
 
 /* Style the content */
-article {
-    flex: 3;
+.content {
+    display: flex;
+    justify-content: space-around;
+    flex: 5;
     background-color: #f1f1f1;
-    padding: 10px;
+    padding: 20px;
+}
+
+.series-block {
+    height: 100px;
+    width: 200px;
+    background-color: rgb(245, 220, 245);
+}
+
+.series-block img {
+    width: 100%;  
+    height: auto;
 }
 
 /* Responsive layout - makes the menu and the content (inside the section) sit on top of each other instead of next to each other */
