@@ -55,14 +55,22 @@ h1 {
 }
 
 .series-block {
-    height: 100px;
+    height: 150px;
     width: 200px;
     background-color: rgb(245, 220, 245);
 }
 
-.series-block img {
+.series-block-img {
     width: 100%;  
-    height: auto;
+    height: 100%;
+    border-radius: 10px;
+    box-shadow: 2px 2px 4px #888888;
+    transition: box-shadow 0.3s ease;
+    /* object-fit: cover; */
+}
+
+.series-block-img:hover {
+    box-shadow: none;
 }
 
 /* Responsive layout - makes the menu and the content (inside the section) sit on top of each other instead of next to each other */
