@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>
+    </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="">
+    <script>
+        setInterval(clock, 1000);
+
+        function clock() {
+            var divElement = document.getElementById("clock");
+            var currentDate = new Date();
+            divElement.innerHTML = currentDate.toLocaleTimeString();
+        }
+    </script>
+</head>
+
+<body>
+    <h3 id="clock"></h3>
+</body>
+
+</html>

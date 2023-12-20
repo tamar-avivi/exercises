@@ -1,0 +1,31 @@
+@{
+    ViewData["SeriesIdImage"] = @Url.Content("~/images/" + ViewData["SeriesId"] + ".png");
+}
+
+<div class="main-series-block">
+    <img class="main-series-block-img" src='@ViewData["SeriesIdImage"]'>
+</div>
+<div class="recommendations">
+    <div class="stars">
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+    </div>
+    <div>
+        <h2>Recommendations:</h2>
+    </div>
+    <div class="afaf">
+        <p>
+            ~~~~~~~~~~~~~~~~~~
+        </p>
+        <p>
+            ~~~~~~~~~~~~~~~~~~
+        </p>
+        <p>
+            ~~~~~~~~~~~~~~~~~~
+        </p>
+
+    </div>
+</div>
