@@ -204,6 +204,21 @@ class Page10 {
         }
     }
     //============================================================
+    public void exerciseP10_B_2() {
+        int num2 = 1;
+        Console.WriteLine("Please enter a number:");
+        int num = int.Parse(Console.ReadLine());
+        while (num2 * num2 < num) {
+            if (num2 * num2 == num) {
+                Console.WriteLine("{0} * {0} = {1}", num2, num);
+            }
+            else if (num2 * num2 > num) {
+                Console.WriteLine("there is no square root");
+            }
+            num2++;
+        }
+    }
+    //============================================================
     public void exerciseP10_B_3() {
         int num = int.Parse(Console.ReadLine());
         int limit = (int)Math.Sqrt(num);
@@ -217,5 +232,35 @@ class Page10 {
         }
         Console.WriteLine(flag);
     }
+    //============================================================
+    public void exerciseP10_B_4() {
+        int num = 3;
+        while (num < 1000) {
+            if (num % 3 == 0 || num % 5 == 0) {
+                Console.Write("{0} ", num);
+            }
+            num++;
+        }
+    }
+    //============================================================
+    public void exerciseP10_B_7() {
 
+        int num = int.Parse(Console.ReadLine());
+        Console.Write("{0} -> ", num);
+        while (num != 1) {
+            if (num % 2 == 0) {
+                num /= 2;
+                Console.Write("{0} -> ", num);
+            }
+            else {
+                num = num * 3 + 1;
+                Console.Write("{0} -> ", num);
+            }
+        }
+    }
+
+    //============================================================
+    public void exerciseP10_B_8() {
+
+    }
 }
