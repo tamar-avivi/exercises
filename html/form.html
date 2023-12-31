@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="">
+    <script>
+        function checkForm() {
+            var fName = document.getElementById("fName").value;
+            if (fName.length < 2) {
+                document.getElementById("mName").style.display = "";
+                return false;
+            } else {
+                document.getElementById("mName").style.display = "none";
+            }
+
+            var lName = document.getElementById("lName").value;
+            if (lName.length < 2) {
+                document.getElementById("nName").style.display = "";
+                return false;
+            } else {
+                document.getElementById("nName").style.display = "none";
+            }
+
+            var email = document.getElementById("email").value;
+            var atSign = email.indexOf('@');
+            var size = email.length;
+            var dotSign = email.indexOf('.', atSign);
+            var emailMessage = document.getElementById("mEmail");
+            if (email.indexOf('@') < 2 || email.lastIndexOf('@') == size - 1) {
+                document.getElementById("mEmail").style.display = "";
+                emailMessage.innerHTML = "inco rrect @ sign location!"
+                return false;
+            } if (email.length < 6) {
+                document.getElementById("mEmail").style.display = "";
+                emailMessage.innerHTML = "email too short. should be at least 6 char long!"
+                return false;
+            } else if (email.indexOf('.') == 0 || email.lastIndexOf('.') == size - 1) {
+                document.getElementById("mEmail").style.display = "";
+                emailMessage.innerHTML = "incorrect '.' sign location!"
+                return false;
+            } else if (dotSign - atSign < 2) {
+                document.getElementById("mEmail").style.display = "";
+                emailMessage.innerHTML = "@ and '.' can not be one after the other!"
+                return false;
+            } else if (atSign != email.lastIndexOf('@')) {
+                document.getElementById("mEmail").style.display = "";
+                emailMessage.innerHTML = "shoud be one @!"
+                return false;
+            } else {
+                document.getElementById("mEmail").style.display = "none";
+            }
+            alert("form valid");
+            return true;
+        }
+    </script>
+</head>
+
+
+<body>
+    <form method="post" runat="server" onsubmit="return checkForm();">
+        <table>
+            <tr>
+                <td>
+                    first name:
+                </td>
+                <td><input type="text" id="fName"></td>
+                <td>
+                    <div id="mName" style="display: none;">Please enter a valid name!</div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    last name:
+                </td>
+                <td><input type="text" id="lName"></td>
+                <td>
+                    <div id="nName" style="display: none;">Please enter a valid name!</div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    email:
+                </td>
+                <td><input type="text" id="email"></td>
+                <td>
+                    <div id="mEmail" style="display: none;"></div>
+                </td>
+            </tr>
+            <tr>
+                <td><button type="submit" onclick="">send</button></td>
+            </tr>
+        </table>
+
+
+    </form>
+
+</body>
+
+</html>
