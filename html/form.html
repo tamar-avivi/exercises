@@ -18,6 +18,7 @@
             } else {
                 document.getElementById("UName").style.display = "none";
             }
+            return true;
         }
 
         function checkFname() {
@@ -28,6 +29,7 @@
             } else {
                 document.getElementById("mName").style.display = "none";
             }
+            return true;
         }
 
         function checkLname() {
@@ -38,6 +40,7 @@
             } else {
                 document.getElementById("nName").style.display = "none";
             }
+            return true;
         }
 
         function checkEmail() {
@@ -71,13 +74,17 @@
             }
             alert("form valid");
             return true;
-        }   
+        }
+
+        function checkForm() {
+            return checkEmail() && checkFname() && checkUname() && checkLname();
+        }
     </script>
 </head>
 
 
 <body>
-    <form method="post" runat="server" onsubmit="return checkUname();">
+    <form method="post" runat="server" onsubmit="return checkForm()">
         <table>
 
             <tr>
@@ -89,11 +96,6 @@
                     <div id="UName" style="display: none;">Please enter a username!</div>
                 </td>
             </tr>
-        </table>
-    </form>
-
-    <form method="post" runat="server" onsubmit="return checkFname();">
-        <table>
             <tr>
                 <td>
                     first name:
@@ -103,12 +105,6 @@
                     <div id="mName" style="display: none;">Please enter a valid name!</div>
                 </td>
             </tr>
-        </table>
-    </form>
-
-    <form method="post" runat="server" onsubmit="return checkLname();">
-        <table>
-
             <tr>
                 <td>
                     last name:
@@ -118,10 +114,6 @@
                     <div id="nName" style="display: none;">Please enter a valid name!</div>
                 </td>
             </tr>
-        </table>
-    </form>
-    <form method="post" runat="server" onsubmit="return checkEmail();">
-        <table>
             <tr>
                 <td>
                     email:
@@ -131,49 +123,45 @@
                     <div id="mEmail" style="display: none;"></div>
                 </td>
             </tr>
+            <tr>
+                <td><input type="radio" name="gender" value="male" checked>Male</td>
+                <td><input type="radio" name="gender" value="female">Female<BR></td>
+            </tr>
+
+            <tr>
+                <td>phone number:</td>
+                <td dir="ltr">
+                    <select name="prefix">
+                        <option value="choose">choose</option>
+                        <option value="050">050</option>
+                        <option value="052">052</option>
+                        <option value="053">053</option>
+                        <option value="054">054</option>
+                        <option value="055">055</option>
+                        <option value="057">057</option>
+                        <option value="058">058</option>
+                        <option value="077">077</option>
+                        <option value="02">02</option>
+                        <option value="03">03</option>
+                        <option value="04">04</option>
+                        <option value="08">08</option>
+                        <option value="09">09</option>
+                    </select>
+
+                    &nbsp;&nbsp; - &nbsp;&nbsp;
+
+                    <input type="text" name="phoneNum" id="phoneNum">
+                </td>
+                <td>
+                    <input type="text" id="mPhone" size="30"
+                        style="display: none; background-color: silver; font-weight: bold;" disabled="disabled" />
+                </td>
+            </tr>
+            <tr>
+                <td><button type="submit" onclick="">send</button></td>
+            </tr>
         </table>
     </form>
-    <tr>
-        <td><input type="radio" name="gender" value="male" checked>Male</td>
-        <td><input type="radio" name="gender" value="female">Female<BR></td>
-    </tr>
-
-    <tr>
-        <td><button type="submit" onclick="">send</button></td>
-    </tr>
-
-    <tr>
-        <td>phone number:</td>
-        <td dir="ltr">
-            <select name="prefix">
-                <option value="choose">choose</option>
-                <option value="050">050</option>
-                <option value="052">052</option>
-                <option value="053">053</option>
-                <option value="054">054</option>
-                <option value="055">055</option>
-                <option value="057">057</option>
-                <option value="058">058</option>
-                <option value="077">077</option>
-                <option value="02">02</option>
-                <option value="03">03</option>
-                <option value="04">04</option>
-                <option value="08">08</option>
-                <option value="09">09</option>
-            </select>
-
-            &nbsp;&nbsp; - &nbsp;&nbsp;
-
-            <input type="text" name="phoneNum" id="phoneNum">
-        </td>
-        <td>
-            <input type="text" id="mPhone" size="30" style="display: none; background-color: silver; font-weight: bold;"
-                disabled="disabled" />
-        </td>
-    </tr>
-
-
-
 
 </body>
 
