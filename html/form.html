@@ -11,9 +11,8 @@
     <script>
         function checkUname() {
             var UName = document.getElementById("UName").value;
-            console.log("uname=" + UName);
             if (UName.length < 2) {
-                document.getElementById("UName").style.display = "";
+                document.getElementById("UName").style.display = "Username too short!";
                 return false;
             } else {
                 document.getElementById("UName").style.display = "none";
@@ -23,8 +22,8 @@
 
         function checkFname() {
             var fName = document.getElementById("fName").value;
-            if (fName.length < 2) {
-                document.getElementById("mName").style.display = "";
+            if (fName.length <= 1) {
+                document.getElementById("mName").style.display = "name too short!";
                 return false;
             } else {
                 document.getElementById("mName").style.display = "none";
@@ -34,8 +33,8 @@
 
         function checkLname() {
             var lName = document.getElementById("lName").value;
-            if (lName.length < 2) {
-                document.getElementById("nName").style.display = "";
+            if (lName.length <= 1) {
+                document.getElementById("nName").style.display = "name too short!";
                 return false;
             } else {
                 document.getElementById("nName").style.display = "none";
@@ -51,15 +50,15 @@
             var emailMessage = document.getElementById("mEmail");
             if (email.indexOf('@') < 2 || email.lastIndexOf('@') == size - 1) {
                 document.getElementById("mEmail").style.display = "";
-                emailMessage.innerHTML = "inco rrect @ sign location!"
+                emailMessage.innerHTML = "Incorrect @ sign location!"
                 return false;
             } if (email.length < 6) {
                 document.getElementById("mEmail").style.display = "";
-                emailMessage.innerHTML = "email too short. should be at least 6 char long!"
+                emailMessage.innerHTML = "Email too short. should be at least 6 char long!"
                 return false;
             } else if (email.indexOf('.') == 0 || email.lastIndexOf('.') == size - 1) {
                 document.getElementById("mEmail").style.display = "";
-                emailMessage.innerHTML = "incorrect '.' sign location!"
+                emailMessage.innerHTML = "Incorrect '.' sign location!"
                 return false;
             } else if (dotSign - atSign < 2) {
                 document.getElementById("mEmail").style.display = "";
@@ -67,17 +66,43 @@
                 return false;
             } else if (atSign != email.lastIndexOf('@')) {
                 document.getElementById("mEmail").style.display = "";
-                emailMessage.innerHTML = "shoud be one @!"
+                emailMessage.innerHTML = "Shoud be one @!"
                 return false;
             } else {
                 document.getElementById("mEmail").style.display = "none";
+                alert("Form valid");
             }
-            alert("form valid");
             return true;
         }
+        function checkPrefix() {
+            var prefix = document.getElementById("prefix").value;
+            if (prefix.selectedIndex == 0) {
+                document.getElementById("prefix").value = "No prefix selected!";
+                document.getElementById("prefix").style.display = "inline";
+                return false;
+            } else {
+                document.getElementById("prefix").style.display = "none";
+            }
+            return true;
+
+        }
+        function checkPhone() {
+            if (isNaN(phone)) {
+                document.getElementById("nPhone").style.display = "Numbers only!";
+            } else {
+                document.getElementById("nPhone").style.display = "none";
+            }
+            if (phone.length != 7) {
+                document.getElementById("nPhone").value = "phone number must contain exactly 7 digits!";
+                document.getElementById("nPhone").style.display = "inline";
+            } else {
+                document.getElementById("nPhone").style.display = "none";
+            }
+            return true;
+
 
         function checkForm() {
-            return checkEmail() && checkFname() && checkUname() && checkLname();
+            return checkEmail() && checkFname() && checkUname() && checkLname() && checkPrefix() && checkPhone();
         }
     </script>
 </head>
@@ -96,6 +121,7 @@
                     <div id="UName" style="display: none;">Please enter a username!</div>
                 </td>
             </tr>
+
             <tr>
                 <td>
                     first name:
@@ -105,6 +131,7 @@
                     <div id="mName" style="display: none;">Please enter a valid name!</div>
                 </td>
             </tr>
+
             <tr>
                 <td>
                     last name:
@@ -114,6 +141,7 @@
                     <div id="nName" style="display: none;">Please enter a valid name!</div>
                 </td>
             </tr>
+
             <tr>
                 <td>
                     email:
@@ -123,6 +151,7 @@
                     <div id="mEmail" style="display: none;"></div>
                 </td>
             </tr>
+
             <tr>
                 <td><input type="radio" name="gender" value="male" checked>Male</td>
                 <td><input type="radio" name="gender" value="female">Female<BR></td>
@@ -150,13 +179,28 @@
 
                     &nbsp;&nbsp; - &nbsp;&nbsp;
 
-                    <input type="text" name="phoneNum" id="phoneNum">
+                    <input type="text" name="prefix" id="prefix">
                 </td>
                 <td>
-                    <input type="text" id="mPhone" size="30"
-                        style="display: none; background-color: silver; font-weight: bold;" disabled="disabled" />
+                    <input type="text" id="nPhone" size="30"
+                           style="display: none; background-color: silver; font-weight: bold;" disabled="disabled" />
                 </td>
             </tr>
+
+            <tr>
+                <td>year of born:</td>
+                <td dir="ltr">
+                    <select name="yrBorn">
+                        <%= yrBorn %>
+                    </select>
+                    <input type="text" name="yrBorn" id="mYear">
+                </td>
+                <td>
+                    <input type="text" id="nYear" size="30"
+                           style="display: none; background-color: silver; font-weight: bold;" disabled="disabled" />
+                </td>
+            </tr>
+
             <tr>
                 <td><button type="submit" onclick="">send</button></td>
             </tr>
