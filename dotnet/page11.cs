@@ -135,6 +135,44 @@ class Page11 {
         }
         Console.WriteLine(counter);
     }
+    //====================================================
+                //17
+            int month;
+            int day;
+            int year=20;
+            int limit;
+            bool pitagoras = false;
+            while (!pitagoras)
+            {
+                year++;
+                month = 1;
+                while (month<=12 && !pitagoras)
+                {
+                    day = 1;
+                    limit = 31;
+                    if (month == 4 || month == 6 || month == 9 || month == 11)
+                        limit = 30;
+                    if (month == 2)
+                    {
+                        limit = 28;
+                        if (year % 4 == 0 && year % 100 != 0)
+                            limit = 28;
+                    }
+                        while (day<=limit && !pitagoras)
+                        {
+                            if (Math.Pow(day * day + month, 2) + Math.Pow(month, 2) == Math.Pow(year, 2))
+                            {
+                                Console.WriteLine("{0}/{1}/{2}", day, month, year);
+                                pitagoras = true;
+                            }
+                            else
+                                day++;
+                        }
+                        month++;
+                    }
+                    year++;
+                }
+            }
 
 
 }
