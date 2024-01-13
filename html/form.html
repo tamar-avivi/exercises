@@ -12,10 +12,11 @@
         function checkUname() {
             var UName = document.getElementById("UName").value;
             if (UName.length < 2) {
-                document.getElementById("UName").style.display = "Username too short!";
+                document.getElementById("mUName").style.display = "inline";
+                document.getElementById("mUName").innerHTML = "Username too short!";
                 return false;
             } else {
-                document.getElementById("UName").style.display = "none";
+                document.getElementById("mUName").style.display = "none";
             }
             return true;
         }
@@ -23,7 +24,8 @@
         function checkFname() {
             var fName = document.getElementById("fName").value;
             if (fName.length <= 1) {
-                document.getElementById("mName").style.display = "name too short!";
+                document.getElementById("mName").style.display = "inline";
+                document.getElementById("mName").innerHTML = "name too short!";
                 return false;
             } else {
                 document.getElementById("mName").style.display = "none";
@@ -34,7 +36,8 @@
         function checkLname() {
             var lName = document.getElementById("lName").value;
             if (lName.length <= 1) {
-                document.getElementById("nName").style.display = "name too short!";
+                document.getElementById("nName").style.display = "inline";
+                document.getElementById("nName").innerHTML = "name too short!";
                 return false;
             } else {
                 document.getElementById("nName").style.display = "none";
@@ -49,60 +52,124 @@
             var dotSign = email.indexOf('.', atSign);
             var emailMessage = document.getElementById("mEmail");
             if (email.indexOf('@') < 2 || email.lastIndexOf('@') == size - 1) {
-                document.getElementById("mEmail").style.display = "";
+                document.getElementById("mEmail").style.display = "inline";
                 emailMessage.innerHTML = "Incorrect @ sign location!"
                 return false;
             } if (email.length < 6) {
-                document.getElementById("mEmail").style.display = "";
+                document.getElementById("mEmail").style.display = "inline";
                 emailMessage.innerHTML = "Email too short. should be at least 6 char long!"
                 return false;
             } else if (email.indexOf('.') == 0 || email.lastIndexOf('.') == size - 1) {
-                document.getElementById("mEmail").style.display = "";
+                document.getElementById("mEmail").style.display = "inline";
                 emailMessage.innerHTML = "Incorrect '.' sign location!"
                 return false;
             } else if (dotSign - atSign < 2) {
-                document.getElementById("mEmail").style.display = "";
+                document.getElementById("mEmail").style.display = "inline";
                 emailMessage.innerHTML = "@ and '.' can not be one after the other!"
                 return false;
             } else if (atSign != email.lastIndexOf('@')) {
-                document.getElementById("mEmail").style.display = "";
-                emailMessage.innerHTML = "Shoud be one @!"
+                document.getElementById("mEmail").style.display = "inline";
+                emailMessage.innerHTML = "Should be one @!"
                 return false;
             } else {
                 document.getElementById("mEmail").style.display = "none";
-                alert("Form valid");
             }
             return true;
         }
         function checkPrefix() {
             var prefix = document.getElementById("prefix").value;
-            if (prefix.selectedIndex == 0) {
-                document.getElementById("prefix").value = "No prefix selected!";
-                document.getElementById("prefix").style.display = "inline";
+            if (prefix == '') {
+                document.getElementById("mPhone").style.display = "inline";
+                document.getElementById("mPhone").innerHTML = "No prefix selected!";
                 return false;
             } else {
-                document.getElementById("prefix").style.display = "none";
+                document.getElementById("mPhone").style.display = "none";
             }
             return true;
 
         }
         function checkPhone() {
-            if (isNaN(phone)) {
-                document.getElementById("nPhone").style.display = "Numbers only!";
+            var phone = document.getElementById("phone").value;
+            if (phone == "" || isNaN(phone)) {
+                document.getElementById("mPhone").style.display = "inline";
+                document.getElementById("mPhone").innerHTML = "Numbers only!";
+                return false;
             } else {
-                document.getElementById("nPhone").style.display = "none";
+                document.getElementById("mPhone").style.display = "none";
             }
             if (phone.length != 7) {
-                document.getElementById("nPhone").value = "phone number must contain exactly 7 digits!";
-                document.getElementById("nPhone").style.display = "inline";
+                document.getElementById("mPhone").style.display = "inline";
+                document.getElementById("mPhone").innerHTML = "Phone number must contain exactly 7 digits!";
+                return false;
             } else {
-                document.getElementById("nPhone").style.display = "none";
+                document.getElementById("mPhone").style.display = "none";
+            }
+            return true;
+        }
+
+        function checkYear() {
+            var year = document.getElementById("year").value;
+            if (year == "" || isNaN(year)) {
+                document.getElementById("mYear").style.display = "inline";
+                document.getElementById("mYear").innerHTML = "Numbers only!";
+                return false;
+            } else {
+                document.getElementById("mYear").style.display = "none";
+            }
+            if (year.length != 4) {
+                document.getElementById("mYear").style.display = "inline";
+                document.getElementById("mYear").innerHTML = "Year must contain exactly 4 digits!";
+                return false;
+            } else {
+                document.getElementById("mYear").style.display = "none";
+            }
+            return true;
+        }
+        function checkCity() {
+            var City = document.getElementById("City").value;
+            if (City == '') {
+                document.getElementById("mCity").style.display = "inline";
+                document.getElementById("mCity").innerHTML = "No city selected!";
+                return false;
+            } else {
+                document.getElementById("mCity").style.display = "none";
             }
             return true;
 
+        }
+        function checkPassword() {
+            var password = document.getElementById("password").value;
+            if (password.length <= 5) {
+                document.getElementById("nPassword").style.display = "inline";
+                document.getElementById("nPassword").innerHTML = "Password too short!";
+                return false;
+            } else if (password.length >= 9) {
+                document.getElementById("nPassword").style.display = "inline";
+                document.getElementById("nPassword").innerHTML = "Password too long!";
+                return false;
+            } else {
+                document.getElementById("nPassword").style.display = "none";
+            }
+            return true;
+        }
+
+        function checkCPassword() {
+            var cPassword = document.getElementById("cPassword").value;
+            var nPassword = document.getElementById("password").value;
+            if (nPassword !== cPassword) {
+                document.getElementById("nCPassword").style.display = "inline";
+                document.getElementById("nCPassword").innerHTML = "Password does not match!";
+                return false;
+            } else {
+                document.getElementById("nCPassword").style.display = "none";
+            }
+            return true;
+        }
+
 
         function checkForm() {
-            return checkEmail() && checkFname() && checkUname() && checkLname() && checkPrefix() && checkPhone();
+            const result = checkYear() & checkEmail() & checkFname() & checkUname() & checkLname() & checkPrefix() & checkPhone() & checkCity() & checkPassword() & checkCPassword();
+            return Boolean(result);
         }
     </script>
 </head>
@@ -118,7 +185,7 @@
                 </td>
                 <td><input type="text" id="UName"></td>
                 <td>
-                    <div id="UName" style="display: none;">Please enter a username!</div>
+                    <div id="mUName" style="display: none; color: red;">Please enter a username!</div>
                 </td>
             </tr>
 
@@ -128,7 +195,7 @@
                 </td>
                 <td><input type="text" id="fName"></td>
                 <td>
-                    <div id="mName" style="display: none;">Please enter a valid name!</div>
+                    <div id="mName" style="display: none; color: red;">Please enter a valid name!</div>
                 </td>
             </tr>
 
@@ -138,7 +205,7 @@
                 </td>
                 <td><input type="text" id="lName"></td>
                 <td>
-                    <div id="nName" style="display: none;">Please enter a valid name!</div>
+                    <div id="nName" style="display: none; color: red;">Please enter a valid name!</div>
                 </td>
             </tr>
 
@@ -148,7 +215,7 @@
                 </td>
                 <td><input type="text" id="email"></td>
                 <td>
-                    <div id="mEmail" style="display: none;"></div>
+                    <div id="mEmail" style="display: none; color: red;"></div>
                 </td>
             </tr>
 
@@ -160,8 +227,8 @@
             <tr>
                 <td>phone number:</td>
                 <td dir="ltr">
-                    <select name="prefix">
-                        <option value="choose">choose</option>
+                    <select id="prefix">
+                        <option value="">choose</option>
                         <option value="050">050</option>
                         <option value="052">052</option>
                         <option value="053">053</option>
@@ -176,34 +243,83 @@
                         <option value="08">08</option>
                         <option value="09">09</option>
                     </select>
-
                     &nbsp;&nbsp; - &nbsp;&nbsp;
-
-                    <input type="text" name="prefix" id="prefix">
+                    <input type="text" id="phone">
                 </td>
                 <td>
-                    <input type="text" id="nPhone" size="30"
-                           style="display: none; background-color: silver; font-weight: bold;" disabled="disabled" />
+                    <div id="mPhone" style="display: none; color: red;"></div>
                 </td>
             </tr>
 
             <tr>
                 <td>year of born:</td>
                 <td dir="ltr">
-                    <select name="yrBorn">
-                        <%= yrBorn %>
-                    </select>
-                    <input type="text" name="yrBorn" id="mYear">
+                    <input type="text" name="yrBorn" id="year">
                 </td>
                 <td>
-                    <input type="text" id="nYear" size="30"
-                           style="display: none; background-color: silver; font-weight: bold;" disabled="disabled" />
+                    <div id="mYear" style="display: none; color: red;">Please enter a valid year!</div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td>city:</td>
+                <td dir="ltr">
+                    <select id="City">
+                        <option value="">choose</option>
+                        <option value="Jerusalem">Jerusalem</option>
+                        <option value="Tel aviv">Tel aviv</option>
+                        <option value="Eilat">Eilat</option>
+                        <option value="Haifa">Haifa</option>
+                        <option value="Ashkelon">Ashkelon</option>
+                        <option value="Ashdod">Ashdod</option>
+                        <option value="Herzliya">Herzliya</option>
+                    </select>
+                </td>
+                <td>
+                    <div id="mCity" style="display: none; color: red;"></div>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    hobbies:
+                </td>
+                <td>
+                    <input type="checkbox" name="hobbies" value="Tennis" />Tennis &nbsp;&nbsp;&nbsp;
+                    <input type="checkbox" name="hobbies" value="footBall" />Football &nbsp;&nbsp;&nbsp;
+                    <input type="checkbox" name="hobbies" value="compGame" />Gaming &nbsp;&nbsp;&nbsp;
+                    <input type="checkbox" name="hobbies" value="dancing" />Dance &nbsp;&nbsp;&nbsp;
+                </td>
+
+                <input type="text" id="mHobies" size="30"
+                    style="display: none; background-color: Silver; font-weight:bold;" disabled="disabled" />
+            </tr>
+
+            <tr>
+                <td>
+                    Password:
+                </td>
+                <td><input type="text" id="password"></td>
+                <td>
+                    <div id="nPassword" style="display: none; color: red;">Please enter a valid password!</div>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    Confirm Password:
+                </td>
+                <td><input type="text" id="cPassword"></td>
+                <td>
+                    <div id="nCPassword" style="display: none; color: red;">Please enter a valid password!</div>
                 </td>
             </tr>
 
             <tr>
                 <td><button type="submit" onclick="">send</button></td>
             </tr>
+
         </table>
     </form>
 
