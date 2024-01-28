@@ -1,5 +1,13 @@
-﻿@{
+﻿@model List<GetSeries.Models.Series>
+
+@{
     ViewData["Title"] = "Home Page";
+}
+
+@foreach (var series in Model)
+{
+    <div>@series.Id</div>
+    <div>@series.Title</div>
 }
 <div class="series-block">
     <img class="series-block-img" onclick="window.location='GetSeries/Details/seinfeld'" src="images/seinfeld.png">

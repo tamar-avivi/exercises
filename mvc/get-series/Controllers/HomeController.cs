@@ -1,18 +1,22 @@
 ﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using get_series.Models;
+using GetSeries.Data;
 
 namespace get_series.Controllers;
 
 public class HomeController : Controller {
-    private readonly ILogger<HomeController> _logger;
+    // private readonly ILogger<HomeController> _logger;
 
-    public HomeController(ILogger<HomeController> logger) {
-        _logger = logger;
+    private ApplicationDbContext _db;
+
+    public HomeController(ApplicationDbContext db) {
+        _db = db;
     }
 
     public IActionResult Index() {
-        return View();
+        var seriesList = _db.Series.ToList();
+        return View(seriesList);
     }
 
     public IActionResult Privacy() {

@@ -1,0 +1,5 @@
+{
+    "dataworkspace.excludedProjects": [
+        "get_series/get_series.sqlproj"
+    ]
+}
